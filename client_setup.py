@@ -2,14 +2,14 @@
 #
 # This will create a Space and Project for you in Ockam Orchestrator and provision an
 # End-to-End Encrypted Cloud Relay service in your `default` project at `/project/default`.
-ockam enroll
+# ockam enroll
 
 # -- APPLICATION SERVICE --
 
 # Start an application service, listening on a local IP and port, that clients would access
 # through the cloud encrypted relay. We'll use a simple HTTP server for this first example
 # but this could be any other application service.
-python3 -m http.server --bind 127.0.0.1 6000
+# python3 -m http.server --bind 127.0.0.1 6000
 
 # In a new terminal window, setup a tcp-outlet that makes a TCP service available at the given
 # address `6000`. We can use this to send raw TCP traffic to the HTTP server on port `6000`.
@@ -17,8 +17,8 @@ python3 -m http.server --bind 127.0.0.1 6000
 # establish end-to-end protocols with services operating in a remote private networks, without
 # requiring a remote service to expose listening ports to an outside hostile network like the
 # Internet.
-ockam tcp-outlet create --to 6000
-ockam relay create
+# ockam tcp-outlet create --to 6000
+# ockam relay create
 
 # -- APPLICATION CLIENT --
 
